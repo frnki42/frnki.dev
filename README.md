@@ -1,0 +1,2 @@
+# frnki.dev
+frnki.dev
