@@ -5,11 +5,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>frnki.dev</title>
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Welcome to frnki.dev</h1>
-  <p>This is the personal site of a VR/Unreal Engine developer and computer science student at 42Vienna.</p>
+<body class="bg-gray-100 text-gray-800 font-sans p-6">
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold text-blue-600">frnki.dev</h1>
+    <p class="text-lg mt-2">VR/UE5 Developer & CS Student at 42Vienna</p>
+  </header>
+
+  <main>
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-2">Current Projects</h2>
+      <ul class="list-disc list-inside space-y-1">
+        <li>🏛️ VR Presentation Tool for Architecture Office</li>
+        <li>🧠 VR Exposure Therapy App</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-2">Contact</h2>
+      <p>Email me: <a class="text-blue-500 hover:underline" href="mailto:hello@frnki.dev">hello@frnki.dev</a></p>
+    </section>
+  </main>
 </body>
 </html>
 
