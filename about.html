@@ -1,0 +1,89 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · frnki.dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#282828',
+            fg: '#ebdbb2',
+            green: '#b8bb26',
+            aqua: '#8ec07c',
+            purple: '#d3869b',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-bg text-fg font-sans">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-fg/10 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-green text-xl font-bold">frnki.dev</a>
+      <ul class="flex gap-6 text-sm font-medium">
+        <li><a href="index.html" class="text-fg hover:text-green transition">Home</a></li>
+        <li><a href="projects.html" class="text-fg hover:text-green transition">Projects</a></li>
+        <li><a href="about.html" class="text-fg hover:text-green transition">About</a></li>
+        <li><a href="mailto:frnki@frnki.dev" class="text-fg hover:text-green transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="px-6 md:px-16 lg:px-32 py-16 space-y-12">
+    <section class="fade-target text-center">
+      <h1 class="text-3xl font-bold text-green mb-4">About Me</h1>
+      <p class="text-fg/80 max-w-2xl mx-auto">
+        I’m Franki — a VR developer, Unreal Engine enthusiast, and computer science student at 42Vienna.  
+        I build immersive tools that help people experience spaces, emotions, and ideas in virtual reality.
+      </p>
+    </section>
+
+    <section class="fade-target">
+      <h2 class="text-2xl font-semibold text-green mb-3">What I Work With</h2>
+      <ul class="list-disc list-inside text-fg/80 space-y-1">
+        <li>🎮 Unreal Engine 5 (Blueprints & C++)</li>
+        <li>🧠 Hand Tracking, VR Design, Meta Quest 3</li>
+        <li>🌍 QGIS, Twinmotion, Blender</li>
+        <li>👨‍💻 HTML, CSS, Tailwind, GitHub</li>
+        <li>🧪 Bash, C, Linux, custom shells and C projects at 42</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="text-center text-sm text-fg/50 py-6">
+    &copy; 2025 frnki.dev — All rights reserved.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-target').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
