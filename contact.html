@@ -1,32 +1,20 @@
+<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>frnki.dev</title>
+  <title>Contact · frnki.dev</title>
 
-  <!-- SEO & Social -->
-  <meta name="description" content="Portfolio of frnki – a VR developer and CS student crafting immersive Unreal Engine experiences." />
-  <meta name="author" content="frnki" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- OpenGraph (Discord, LinkedIn, etc.) -->
-  <meta property="og:title" content="frnki.dev" />
-  <meta property="og:description" content="Crafting immersive VR projects with Unreal Engine." />
-  <meta property="og:url" content="https://frnki.dev" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://frnki.dev/og.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="frnki.dev" />
-  <meta name="twitter:description" content="Portfolio of frnki – VR developer, Unreal Engine, and 42Vienna CS student." />
-  <meta name="twitter:image" content="https://frnki.dev/og.png" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <!-- Plausible -->
   <script defer data-domain="frnki.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
-  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+  <script>
+    window.plausible = window.plausible || function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+  </script>
+
+  <!-- Tailwind + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -58,7 +46,7 @@
 </head>
 
 <body class="bg-bg text-fg font-sans">
-  <!-- 🔝 Sticky Navbar -->
+  <!-- Navbar -->
   <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-fg/10 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="text-green text-xl font-bold">frnki.dev</a>
@@ -71,21 +59,43 @@
     </div>
   </nav>
 
-  <main class="px-6 md:px-16 lg:px-32 py-16 space-y-20">
-    <!-- Hero -->
+  <main class="px-6 md:px-16 lg:px-32 py-16 space-y-12">
     <section class="text-center fade-target">
-      <h2 class="text-2xl font-semibold text-green">Crafting Virtual Worlds</h2>
-      <p class="mt-4 text-fg/80 max-w-xl mx-auto">
-        .frnki — building immersive VR experiences for architecture and therapy using Unreal Engine 5 and a curious mind.
+      <h1 class="text-3xl font-bold text-green mb-4">Let's Connect</h1>
+      <p class="text-fg/80 max-w-xl mx-auto">
+        Whether it’s about VR projects, collaboration, or just geeking out about Unreal — here’s how to reach me.
       </p>
     </section>
 
-    <!-- Contact -->
-    <section class="text-center fade-target">
-      <h3 class="text-xl font-semibold text-green mb-2">Contact</h3>
-      <a href="mailto:frnki@frnki.dev" class="text-green underline hover:text-green/80 transition">
-        frnki@frnki.dev
-      </a>
+    <section class="fade-target space-y-4 max-w-md mx-auto text-center">
+      <div>
+        <h3 class="text-lg font-semibold text-green">📧 Email</h3>
+        <a href="mailto:frnki@frnki.dev" class="text-green underline hover:text-green/80 transition">
+          frnki@frnki.dev
+        </a>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold text-green">💬 Discord</h3>
+        <p class="text-fg/80">femboeckelia</p>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold text-green">🔗 GitHub</h3>
+        <a href="https://github.com/frnki42" target="_blank" class="text-green underline hover:text-green/80 transition">
+          github.com/frnki42
+        </a>
+      </div>
+
+      <!-- Future socials -->
+      <!--
+      <div>
+        <h3 class="text-lg font-semibold text-green">📺 YouTube</h3>
+        <a href="#" class="text-green underline hover:text-green/80 transition">
+          Coming soon
+        </a>
+      </div>
+      -->
     </section>
   </main>
 
