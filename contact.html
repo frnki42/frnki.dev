@@ -3,12 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>.frnki | contact</title>
+  <title>Contact · .frnki</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- SEO -->
+  <meta name="description" content="Contact frnki – reach out via email, Discord, GitHub, and more." />
+  <meta name="author" content="frnki" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OpenGraph & Twitter -->
+  <meta property="og:title" content="Contact · frnki.dev" />
+  <meta property="og:description" content="Contact frnki – reach out via email, Discord, GitHub, and more." />
+  <meta property="og:url" content="https://frnki.dev/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://frnki.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact · frnki.dev" />
+  <meta name="twitter:description" content="Contact frnki – reach out via email, Discord, GitHub, and more." />
+  <meta name="twitter:image" content="https://frnki.dev/og.png" />
+
+  <!-- Analytics -->
   <script defer data-domain="frnki.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
-  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+  <script>
+    window.plausible = window.plausible || function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+  </script>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,12 +40,9 @@
         extend: {
           colors: {
             bg: '#282828',
-            fg: '#ebdbb2',
-            green: '#b8bb26',
-            aqua: '#8ec07c',
-            purple: '#d3869b',
             text: '#ffffff',
             sub: '#cccccc',
+            green: '#b8bb26',
             border: '#444444',
           },
           fontFamily: {
@@ -41,38 +62,44 @@
     html { scroll-behavior: smooth; }
   </style>
 </head>
-<body class="bg-bg text-fg font-sans">
+
+<body class="bg-bg text-text font-sans">
+  <!-- 🔝 Navbar -->
   <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-border shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center space-x-2 group">
         <img src="favicon-96x96.png" alt=".frnki logo" class="h-6 w-6 drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" />
-        <span class="text-text text-xl font-bold hover:text-green transition">.frnki</span>
+        <span class="text-white text-xl font-bold group-hover:text-green transition">.frnki</span>
       </a>
       <ul class="flex gap-6 text-sm font-medium">
-        <li><a href="index.html" class="text-fg hover:text-green transition">Home</a></li>
-        <li><a href="projects.html" class="text-fg hover:text-green transition">Projects</a></li>
-        <li><a href="about.html" class="text-fg hover:text-green transition">About</a></li>
-        <li><a href="contact.html" class="text-fg hover:text-green transition">Contact</a></li>
+        <li><a href="index.html" class="text-text hover:text-green transition">Home</a></li>
+        <li><a href="projects.html" class="text-text hover:text-green transition">Projects</a></li>
+        <li><a href="about.html" class="text-text hover:text-green transition">About</a></li>
+        <li><a href="contact.html" class="text-green font-semibold">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <main class="px-6 md:px-16 lg:px-32 py-16 space-y-12">
+  <main class="px-6 md:px-16 lg:px-32 py-16 space-y-16">
     <section class="text-center fade-target">
-      <h1 class="text-3xl font-bold text-green mb-4">Contact</h1>
-      <p class="text-fg/80 max-w-xl mx-auto mb-4">You can reach me through the following platforms:</p>
-      <ul class="space-y-2">
-        <li><a href="mailto:frnki@frnki.dev" class="text-green underline hover:text-green/80 transition">📧 frnki@frnki.dev</a></li>
-        <li><a href="https://github.com/frnki42" target="_blank" class="text-green underline hover:text-green/80 transition">💻 github.com/frnki42</a></li>
-        <li><span class="text-sub">More coming soon…</span></li>
-      </ul>
+      <h1 class="text-3xl font-bold text-white mb-4">Contact Me</h1>
+      <p class="text-sub max-w-xl mx-auto mb-8">
+        Reach out if you want to collaborate, ask a question, or just say hi.
+      </p>
+      <div class="space-y-4 text-sub">
+        <p><strong class="text-white">📧 Email:</strong> <a href="mailto:frnki@frnki.dev" class="text-green hover:underline">frnki@frnki.dev</a></p>
+        <p><strong class="text-white">💬 Discord:</strong> <span class="text-sub">frnki.dev</span></p>
+        <p><strong class="text-white">💻 GitHub:</strong> <a href="https://github.com/frnki42" target="_blank" class="text-green hover:underline">github.com/frnki42</a></p>
+        <!-- <p><strong class="text-white">🎥 YouTube:</strong> <a href="#" class="text-green hover:underline">coming soon</a></p> -->
+      </div>
     </section>
   </main>
 
-  <footer class="text-center text-sm text-fg/50 py-6">
+  <footer class="text-center text-sm text-sub py-6">
     &copy; 2025 frnki.dev — All rights reserved.
   </footer>
 
+  <!-- Fade-in Animations -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -86,4 +113,3 @@
   </script>
 </body>
 </html>
-
