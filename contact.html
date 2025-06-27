@@ -1,4 +1,3 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +7,8 @@
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
-  <!-- Plausible -->
   <script defer data-domain="frnki.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
-  <script>
-    window.plausible = window.plausible || function () {
-      (window.plausible.q = window.plausible.q || []).push(arguments)
-    }
-  </script>
-
-  <!-- Tailwind + Fonts -->
+  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -28,6 +20,9 @@
             green: '#b8bb26',
             aqua: '#8ec07c',
             purple: '#d3869b',
+            text: '#ffffff',
+            sub: '#cccccc',
+            border: '#444444',
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
@@ -46,12 +41,13 @@
     html { scroll-behavior: smooth; }
   </style>
 </head>
-
 <body class="bg-bg text-fg font-sans">
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-fg/10 shadow-sm">
+  <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-border shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-green text-xl font-bold">frnki.dev</a>
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="favicon-96x96.png" alt=".frnki logo" class="h-6 w-6 drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" />
+        <span class="text-text text-xl font-bold hover:text-green transition">.frnki</span>
+      </a>
       <ul class="flex gap-6 text-sm font-medium">
         <li><a href="index.html" class="text-fg hover:text-green transition">Home</a></li>
         <li><a href="projects.html" class="text-fg hover:text-green transition">Projects</a></li>
@@ -63,41 +59,13 @@
 
   <main class="px-6 md:px-16 lg:px-32 py-16 space-y-12">
     <section class="text-center fade-target">
-      <h1 class="text-3xl font-bold text-green mb-4">Let's Connect</h1>
-      <p class="text-fg/80 max-w-xl mx-auto">
-        Whether it’s about VR projects, collaboration, or just geeking out about Unreal — here’s how to reach me.
-      </p>
-    </section>
-
-    <section class="fade-target space-y-4 max-w-md mx-auto text-center">
-      <div>
-        <h3 class="text-lg font-semibold text-green">📧 Email</h3>
-        <a href="mailto:frnki@frnki.dev" class="text-green underline hover:text-green/80 transition">
-          frnki@frnki.dev
-        </a>
-      </div>
-
-      <div>
-        <h3 class="text-lg font-semibold text-green">💬 Discord</h3>
-        <a href="https://discord.com/users/278629276553838592">.frnki</a>
-      </div>
-
-      <div>
-        <h3 class="text-lg font-semibold text-green">🔗 GitHub</h3>
-        <a href="https://github.com/frnki42" target="_blank" class="text-green underline hover:text-green/80 transition">
-          github.com/frnki42
-        </a>
-      </div>
-
-      <!-- Future socials -->
-      <!--
-      <div>
-        <h3 class="text-lg font-semibold text-green">📺 YouTube</h3>
-        <a href="#" class="text-green underline hover:text-green/80 transition">
-          Coming soon
-        </a>
-      </div>
-      -->
+      <h1 class="text-3xl font-bold text-green mb-4">Contact</h1>
+      <p class="text-fg/80 max-w-xl mx-auto mb-4">You can reach me through the following platforms:</p>
+      <ul class="space-y-2">
+        <li><a href="mailto:frnki@frnki.dev" class="text-green underline hover:text-green/80 transition">📧 frnki@frnki.dev</a></li>
+        <li><a href="https://github.com/frnki42" target="_blank" class="text-green underline hover:text-green/80 transition">💻 github.com/frnki42</a></li>
+        <li><span class="text-sub">More coming soon…</span></li>
+      </ul>
     </section>
   </main>
 
@@ -114,8 +82,8 @@
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-target').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
+
