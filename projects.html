@@ -3,12 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>.frnki | projects</title>
+  <title>Projects · .frnki</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- SEO -->
+  <meta name="description" content="A showcase of immersive VR projects crafted by frnki." />
+  <meta name="author" content="frnki" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OpenGraph & Twitter -->
+  <meta property="og:title" content="Projects · frnki.dev" />
+  <meta property="og:description" content="Explore projects built with Unreal Engine by frnki." />
+  <meta property="og:url" content="https://frnki.dev/projects.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://frnki.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects · frnki.dev" />
+  <meta name="twitter:description" content="A showcase of immersive VR projects crafted by frnki." />
+  <meta name="twitter:image" content="https://frnki.dev/og.png" />
+
+  <!-- Analytics -->
   <script defer data-domain="frnki.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
-  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+  <script>
+    window.plausible = window.plausible || function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+  </script>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,12 +40,9 @@
         extend: {
           colors: {
             bg: '#282828',
-            fg: '#ebdbb2',
-            green: '#b8bb26',
-            aqua: '#8ec07c',
-            purple: '#d3869b',
             text: '#ffffff',
             sub: '#cccccc',
+            green: '#b8bb26',
             border: '#444444',
           },
           fontFamily: {
@@ -41,46 +62,49 @@
     html { scroll-behavior: smooth; }
   </style>
 </head>
-<body class="bg-bg text-fg font-sans">
+
+<body class="bg-bg text-text font-sans">
+  <!-- 🔝 Navbar -->
   <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-border shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center space-x-2 group">
         <img src="favicon-96x96.png" alt=".frnki logo" class="h-6 w-6 drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" />
-        <span class="text-text text-xl font-bold hover:text-green transition">.frnki</span>
+        <span class="text-white text-xl font-bold group-hover:text-green transition">.frnki</span>
       </a>
       <ul class="flex gap-6 text-sm font-medium">
-        <li><a href="index.html" class="text-fg hover:text-green transition">Home</a></li>
-        <li><a href="projects.html" class="text-fg hover:text-green transition">Projects</a></li>
-        <li><a href="about.html" class="text-fg hover:text-green transition">About</a></li>
-        <li><a href="contact.html" class="text-fg hover:text-green transition">Contact</a></li>
+        <li><a href="index.html" class="text-text hover:text-green transition">Home</a></li>
+        <li><a href="projects.html" class="text-green font-semibold">Projects</a></li>
+        <li><a href="about.html" class="text-text hover:text-green transition">About</a></li>
+        <li><a href="contact.html" class="text-text hover:text-green transition">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="px-6 md:px-16 lg:px-32 py-16 space-y-12">
     <section class="text-center fade-target">
-      <h1 class="text-3xl font-bold text-green mb-4">Projects</h1>
-      <p class="text-fg/80 max-w-2xl mx-auto">
+      <h1 class="text-3xl font-bold text-white mb-4">Projects</h1>
+      <p class="text-sub max-w-2xl mx-auto">
         A few things I've worked on and continue building.
       </p>
     </section>
 
     <section class="grid md:grid-cols-2 gap-6 fade-target">
-      <div class="bg-[#1d2021] p-6 rounded-xl border border-aqua transition hover:scale-[1.01]">
-        <h3 class="text-xl font-semibold text-green">Architecture VR Showcase</h3>
-        <p class="text-sm text-fg/70 mt-2">Real-time walkthroughs for clients in architecture offices using Unreal Engine and Meta Quest 3.</p>
+      <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover:border-green hover:scale-[1.01] transition">
+        <h3 class="text-xl font-semibold text-white">Architecture VR Showcase</h3>
+        <p class="text-sm text-sub mt-2">Real-time walkthroughs for clients in architecture offices using Unreal Engine and Meta Quest 3.</p>
       </div>
-      <div class="bg-[#1d2021] p-6 rounded-xl border border-aqua transition hover:scale-[1.01]">
-        <h3 class="text-xl font-semibold text-green">Exposure Therapy VR</h3>
-        <p class="text-sm text-fg/70 mt-2">A custom UE5 VR experience for psychotherapists to guide clients through phobias in a safe, controlled way.</p>
+      <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover:border-green hover:scale-[1.01] transition">
+        <h3 class="text-xl font-semibold text-white">Exposure Therapy VR</h3>
+        <p class="text-sm text-sub mt-2">A custom UE5 VR experience for psychotherapists to guide clients through phobias in a safe, controlled way.</p>
       </div>
     </section>
   </main>
 
-  <footer class="text-center text-sm text-fg/50 py-6">
+  <footer class="text-center text-sm text-sub py-6">
     &copy; 2025 frnki.dev — All rights reserved.
   </footer>
 
+  <!-- Fade-in Animations -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
