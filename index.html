@@ -1,108 +1,120 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>.frnki</title>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.frnki</title>
 
-  <!-- SEO & Social -->
-  <meta name="description" content="Portfolio of frnki – a VR developer and CS student crafting immersive Unreal Engine experiences." />
-  <meta name="author" content="frnki" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="frnki.dev" />
-  <meta property="og:description" content="Crafting immersive VR projects with Unreal Engine." />
-  <meta property="og:url" content="https://frnki.dev" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://frnki.dev/og.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="frnki.dev" />
-  <meta name="twitter:description" content="Portfolio of frnki – VR developer, Unreal Engine, and 42Vienna CS student." />
-  <meta name="twitter:image" content="https://frnki.dev/og.png" />
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
 
-  <!-- Analytics -->
-  <script defer data-domain="frnki.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
-  <script>
-    window.plausible = window.plausible || function () {
-      (window.plausible.q = window.plausible.q || []).push(arguments)
-    }
-  </script>
+    <!-- SEO & Social -->
+    <meta name="description" content="Portfolio of frnki – a VR developer and CS student crafting immersive Unreal Engine experiences." />
+    <meta name="author" content="frnki" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="frnki.dev" />
+    <meta property="og:description" content="Crafting immersive VR projects with Unreal Engine." />
+    <meta property="og:url" content="https://frnki.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://frnki.dev/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="frnki.dev" />
+    <meta name="twitter:description" content="Portfolio of frnki – VR developer, Unreal Engine, and 42Vienna CS student." />
+    <meta name="twitter:image" content="https://frnki.dev/og.png" />
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: '#282828',
-            text: '#ffffff',
-            sub: '#cccccc',
-            green: '#b8bb26',
-            border: '#444444',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+    <!-- Analytics -->
+    <script defer data-domain="frnki.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
+    <script>
+      window.plausible = window.plausible || function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments)
+      }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: '#282828',
+              text: '#ffffff',
+              sub: '#cccccc',
+              green: '#b8bb26',
+              border: '#444444',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
           }
         }
+      };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
-    html { scroll-behavior: smooth; }
-  </style>
-</head>
+      .fade-in {
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
 
-<body class="bg-bg text-text font-sans">
-  <!-- 🔝 Navbar -->
-  <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-border shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center">
-        <img src="favicon-96x96.png" alt=".frnki logo" class="h-6 w-6 mr-2 drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]" />
-      </a>
-      <ul class="flex gap-6 text-sm font-medium">
-        <li><a href="index.html" class="text-text hover:text-green transition">Home</a></li>
-        <li><a href="projects.html" class="text-text hover:text-green transition">Projects</a></li>
-        <li><a href="about.html" class="text-text hover:text-green transition">About</a></li>
-        <li><a href="contact.html" class="text-text hover:text-green transition">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <body class="bg-bg text-text font-sans">
+    <!-- 🔝 Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-border shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2">
+          <img src="favicon-96x96.png" alt=".frnki logo" class="h-6 w-6 drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" />
+          <span class="text-green text-xl font-bold">.frnki</span>
+        </a>
+        <ul class="flex gap-6 text-sm font-medium">
+          <li><a href="index.html" class="text-text hover:text-green transition">Home</a></li>
+          <li><a href="projects.html" class="text-text hover:text-green transition">Projects</a></li>
+          <li><a href="about.html" class="text-text hover:text-green transition">About</a></li>
+          <li><a href="contact.html" class="text-text hover:text-green transition">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- 👁️ Logo + Hero -->
-  <main class="px-6 md:px-16 lg:px-32 py-16 space-y-20">
-    <section class="text-center fade-target">
-      <img src="favicon-96x96.png" alt=".frnki logo" class="mx-auto mb-8 w-32 drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]" />
-      <h2 class="text-2xl font-semibold text-white">Crafting Virtual Worlds</h2>
-      <p class="mt-4 text-sub max-w-xl mx-auto">
-        .frnki — building immersive VR experiences for architecture and therapy using Unreal Engine 5 and a curious mind.
-      </p>
-    </section>
-  </main>
+    <!-- 👁️ Hero -->
+    <main class="px-6 md:px-16 lg:px-32 py-16 space-y-20">
+      <section class="text-center fade-target">
+        <h2 class="text-2xl font-semibold text-white">Crafting Virtual Worlds</h2>
+        <p class="mt-4 text-sub max-w-xl mx-auto">
+          .frnki — building immersive VR experiences for architecture and therapy using Unreal Engine 5 and a curious mind.
+        </p>
+      </section>
+    </main>
 
-  <footer class="text-center text-sm text-sub py-6">
-    &copy; 2025 frnki.dev — All rights reserved.
-  </footer>
+    <!-- 🔚 Footer -->
+    <footer class="text-center text-sm text-sub py-6">
+      &copy; 2025 frnki.dev — All rights reserved.
+    </footer>
 
-  <!-- Fade-in Animations -->
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-target').forEach(el => observer.observe(el));
-  </script>
-</body>
+    <!-- 🌀 Fade-in Animation -->
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-target').forEach(el => observer.observe(el));
+    </script>
+  </body>
 </html>
+
