@@ -56,6 +56,158 @@
     }
     .fade-in { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
     html { scroll-behavior: smooth; }
+    
+    /* Gallery Styles */
+    .gallery-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      aspect-ratio: 16/9;
+      background: #1d2021;
+    }
+    
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+    
+    .gallery-nav:hover {
+      background: rgba(184,187,38,0.8);
+    }
+    
+    .gallery-nav.prev {
+      left: 10px;
+    }
+    
+    .gallery-nav.next {
+      right: 10px;
+    }
+    
+    .gallery-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    
+    .gallery-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .gallery-indicator.active {
+      background: #b8bb26;
+    }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      position: relative;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /* Project Details */
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .project-details.expanded {
+      max-height: 1000px;
+    }
+    
+    .tech-tag {
+      display: inline-block;
+      background: rgba(184,187,38,0.2);
+      color: #b8bb26;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 500;
+    }
+    
+    .project-status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 500;
+    }
+    
+    .status-completed {
+      background: rgba(34,197,94,0.2);
+      color: #22c55e;
+    }
+    
+    .status-development {
+      background: rgba(245,158,11,0.2);
+      color: #f59e0b;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body class="bg-bg text-text font-sans">
@@ -84,9 +236,19 @@
     </section>
 
     <section class="grid md:grid-cols-2 gap-6 fade-target">
+      <!-- crypt.frnki -->
       <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover:border-green hover:scale-[1.01] transition">
-        <h3 class="text-xl font-semibold text-white">crypt.frnki</h3>
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-xl font-semibold text-white">crypt.frnki</h3>
+          <span class="project-status status-completed">Completed</span>
+        </div>
         <p class="text-sm text-sub mt-2 mb-3">A portable file encryption tool with ChaCha20-Poly1305 encryption and Argon2id key derivation. Features cross-platform support, offline operation, and military-grade security with tamper detection.</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="tech-tag">C</span>
+          <span class="tech-tag">ChaCha20-Poly1305</span>
+          <span class="tech-tag">Argon2id</span>
+          <span class="tech-tag">Cross-platform</span>
+        </div>
         <a href="https://github.com/frnki42/crypt.frnki" target="_blank" class="inline-flex items-center gap-2 text-green hover:text-white transition text-sm">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -94,15 +256,149 @@
           View on GitHub
         </a>
       </div>
+      
+      <!-- Architecture VR Showcase -->
       <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover:border-green hover:scale-[1.01] transition">
-        <h3 class="text-xl font-semibold text-white">Architecture VR Showcase</h3>
-        <p class="text-sm text-sub mt-2">Real-time walkthroughs for clients in architecture offices using Unreal Engine and Meta Quest 3.</p>
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-xl font-semibold text-white">Architecture VR Showcase</h3>
+          <span class="project-status status-development">In Development</span>
+        </div>
+        
+        <!-- Image Gallery -->
+        <div class="gallery-container mb-4" data-gallery="architecture">
+          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Architecture+VR+Demo" alt="Architecture VR Demo" class="gallery-image" data-index="0">
+          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Interior+Walkthrough" alt="Interior Walkthrough" class="gallery-image hidden" data-index="1">
+          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Client+Presentation" alt="Client Presentation" class="gallery-image hidden" data-index="2">
+          
+          <button class="gallery-nav prev" onclick="changeImage('architecture', -1)">‹</button>
+          <button class="gallery-nav next" onclick="changeImage('architecture', 1)">›</button>
+          
+          <div class="gallery-indicators">
+            <span class="gallery-indicator active" onclick="showImage('architecture', 0)"></span>
+            <span class="gallery-indicator" onclick="showImage('architecture', 1)"></span>
+            <span class="gallery-indicator" onclick="showImage('architecture', 2)"></span>
+          </div>
+        </div>
+        
+        <p class="text-sm text-sub mt-2 mb-3">Real-time walkthroughs for clients in architecture offices using Unreal Engine and Meta Quest 3.</p>
+        
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="tech-tag">Unreal Engine 5</span>
+          <span class="tech-tag">Meta Quest 3</span>
+          <span class="tech-tag">Blueprints</span>
+          <span class="tech-tag">VR</span>
+        </div>
+        
+        <button class="text-green hover:text-white transition text-sm mb-3" onclick="toggleDetails('architecture')">
+          <span id="architecture-toggle">▼ Show Details</span>
+        </button>
+        
+        <div class="project-details" id="architecture-details">
+          <div class="text-sm text-sub space-y-2 mt-3 pt-3 border-t border-border">
+            <p><strong class="text-white">Key Features:</strong></p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Photorealistic real-time rendering</li>
+              <li>Interactive object manipulation</li>
+              <li>Multiple lighting scenarios</li>
+              <li>Client presentation mode</li>
+              <li>Hand tracking support</li>
+            </ul>
+            <p><strong class="text-white">Technical Implementation:</strong></p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Lumen global illumination</li>
+              <li>Nanite virtualized geometry</li>
+              <li>Custom VR interaction system</li>
+              <li>Optimized for Quest 3 performance</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Video Demo -->
+        <div class="mt-4">
+          <button class="bg-green/20 hover:bg-green/30 text-green px-4 py-2 rounded-lg text-sm transition flex items-center gap-2" onclick="showVideo('architecture')">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            Watch Demo
+          </button>
+        </div>
       </div>
+      
+      <!-- Exposure Therapy VR -->
       <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover:border-green hover:scale-[1.01] transition">
-        <h3 class="text-xl font-semibold text-white">Exposure Therapy VR</h3>
-        <p class="text-sm text-sub mt-2">A custom UE5 VR experience for psychotherapists to guide clients through phobias in a safe, controlled way.</p>
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-xl font-semibold text-white">Exposure Therapy VR</h3>
+          <span class="project-status status-development">In Development</span>
+        </div>
+        
+        <!-- Image Gallery -->
+        <div class="gallery-container mb-4" data-gallery="therapy">
+          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Therapy+VR+Interface" alt="Therapy VR Interface" class="gallery-image" data-index="0">
+          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Safe+Environment" alt="Safe Environment" class="gallery-image hidden" data-index="1">
+          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Progress+Tracking" alt="Progress Tracking" class="gallery-image hidden" data-index="2">
+          
+          <button class="gallery-nav prev" onclick="changeImage('therapy', -1)">‹</button>
+          <button class="gallery-nav next" onclick="changeImage('therapy', 1)">›</button>
+          
+          <div class="gallery-indicators">
+            <span class="gallery-indicator active" onclick="showImage('therapy', 0)"></span>
+            <span class="gallery-indicator" onclick="showImage('therapy', 1)"></span>
+            <span class="gallery-indicator" onclick="showImage('therapy', 2)"></span>
+          </div>
+        </div>
+        
+        <p class="text-sm text-sub mt-2 mb-3">A custom UE5 VR experience for psychotherapists to guide clients through phobias in a safe, controlled way.</p>
+        
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="tech-tag">Unreal Engine 5</span>
+          <span class="tech-tag">C++</span>
+          <span class="tech-tag">Medical VR</span>
+          <span class="tech-tag">Hand Tracking</span>
+        </div>
+        
+        <button class="text-green hover:text-white transition text-sm mb-3" onclick="toggleDetails('therapy')">
+          <span id="therapy-toggle">▼ Show Details</span>
+        </button>
+        
+        <div class="project-details" id="therapy-details">
+          <div class="text-sm text-sub space-y-2 mt-3 pt-3 border-t border-border">
+            <p><strong class="text-white">Therapeutic Features:</strong></p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Graduated exposure scenarios</li>
+              <li>Real-time anxiety monitoring</li>
+              <li>Therapist control interface</li>
+              <li>Progress tracking and analytics</li>
+              <li>Customizable environments</li>
+            </ul>
+            <p><strong class="text-white">Safety & Compliance:</strong></p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Medical device standards compliance</li>
+              <li>Privacy-focused data handling</li>
+              <li>Emergency exit protocols</li>
+              <li>Therapist supervision tools</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Video Demo -->
+        <div class="mt-4">
+          <button class="bg-green/20 hover:bg-green/30 text-green px-4 py-2 rounded-lg text-sm transition flex items-center gap-2" onclick="showVideo('therapy')">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            Watch Demo
+          </button>
+        </div>
       </div>
     </section>
+    
+    <!-- Modal for full-screen images/videos -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
   </main>
   <footer class="text-center text-sm text-sub py-6">
     &copy; 2025 frnki.dev — All rights reserved.
@@ -118,6 +414,118 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-target').forEach(el => observer.observe(el));
+    
+    // Gallery functionality
+    const galleries = {
+      architecture: { currentIndex: 0, images: 3 },
+      therapy: { currentIndex: 0, images: 3 }
+    };
+    
+    function changeImage(galleryName, direction) {
+      const gallery = galleries[galleryName];
+      const container = document.querySelector(`[data-gallery="${galleryName}"]`);
+      const images = container.querySelectorAll('.gallery-image');
+      const indicators = container.querySelectorAll('.gallery-indicator');
+      
+      // Hide current image
+      images[gallery.currentIndex].classList.add('hidden');
+      indicators[gallery.currentIndex].classList.remove('active');
+      
+      // Calculate new index
+      gallery.currentIndex = (gallery.currentIndex + direction + gallery.images) % gallery.images;
+      
+      // Show new image
+      images[gallery.currentIndex].classList.remove('hidden');
+      indicators[gallery.currentIndex].classList.add('active');
+    }
+    
+    function showImage(galleryName, index) {
+      const gallery = galleries[galleryName];
+      const container = document.querySelector(`[data-gallery="${galleryName}"]`);
+      const images = container.querySelectorAll('.gallery-image');
+      const indicators = container.querySelectorAll('.gallery-indicator');
+      
+      // Hide current image
+      images[gallery.currentIndex].classList.add('hidden');
+      indicators[gallery.currentIndex].classList.remove('active');
+      
+      // Show selected image
+      gallery.currentIndex = index;
+      images[gallery.currentIndex].classList.remove('hidden');
+      indicators[gallery.currentIndex].classList.add('active');
+    }
+    
+    function toggleDetails(projectName) {
+      const details = document.getElementById(`${projectName}-details`);
+      const toggle = document.getElementById(`${projectName}-toggle`);
+      
+      if (details.classList.contains('expanded')) {
+        details.classList.remove('expanded');
+        toggle.textContent = '▼ Show Details';
+      } else {
+        details.classList.add('expanded');
+        toggle.textContent = '▲ Hide Details';
+      }
+    }
+    
+    function showVideo(projectName) {
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+      
+      // Sample video embeddings - replace with actual video URLs
+      const videos = {
+        architecture: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+        therapy: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      };
+      
+      modalBody.innerHTML = `
+        <iframe 
+          width="800" 
+          height="450" 
+          src="${videos[projectName]}" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          style="border-radius: 8px;"
+        ></iframe>
+      `;
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+      
+      modal.classList.remove('active');
+      modalBody.innerHTML = '';
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal on click outside
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+    
+    // Auto-advance gallery every 5 seconds
+    setInterval(() => {
+      Object.keys(galleries).forEach(galleryName => {
+        const container = document.querySelector(`[data-gallery="${galleryName}"]`);
+        if (container && !container.matches(':hover')) {
+          changeImage(galleryName, 1);
+        }
+      });
+    }, 5000);
   </script>
 </body>
 </html>

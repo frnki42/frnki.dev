@@ -1,0 +1,8 @@
+Placeholder for Architecture VR project images:
+- architecture-vr-demo.jpg
+- interior-walkthrough.jpg
+- client-presentation.jpg
+- vr-interface.jpg
+- blueprint-overlay.jpg
+
+Replace these with actual screenshots from your Architecture VR project.

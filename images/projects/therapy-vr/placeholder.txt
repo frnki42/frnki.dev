@@ -1,0 +1,8 @@
+Placeholder for Therapy VR project images:
+- therapy-interface.jpg
+- safe-environment.jpg
+- progress-tracking.jpg
+- therapist-controls.jpg
+- patient-view.jpg
+
+Replace these with actual screenshots from your Therapy VR project.
