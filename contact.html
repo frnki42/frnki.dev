@@ -83,26 +83,6 @@
       100% { opacity: 1; }
     }
     
-    /* Form Styles */
-    .form-input {
-      background: rgba(29, 32, 33, 0.8);
-      border: 1px solid #444444;
-      border-radius: 8px;
-      padding: 12px 16px;
-      color: #ffffff;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: #b8bb26;
-      box-shadow: 0 0 0 3px rgba(184, 187, 38, 0.1);
-    }
-    
-    .form-input::placeholder {
-      color: #cccccc;
-    }
-    
     /* Response Time Badge */
     .response-badge {
       background: rgba(184, 187, 38, 0.1);
@@ -189,62 +169,67 @@
       </div>
     </section>
     
-    <!-- Project Inquiry Form -->
+    <!-- Quick Contact Options -->
     <section class="fade-target">
-      <div class="max-w-2xl mx-auto">
-        <h2 class="text-2xl font-semibold text-white mb-4 text-center">Project Inquiry</h2>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-semibold text-white mb-4 text-center">Ready to Start a Project?</h2>
         <p class="text-sub text-center mb-8">
-          Have a specific project in mind? Let me know the details and I'll get back to you soon.
+          Choose the best way to reach out based on what you need.
         </p>
         
-        <form class="space-y-6" action="mailto:frnki@frnki.dev" method="get" enctype="text/plain">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-white mb-2">Name</label>
-              <input type="text" name="name" class="form-input w-full" placeholder="Your name" required>
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <!-- VR Projects -->
+          <div class="contact-card bg-[#1d2021] p-6 rounded-xl border border-border text-center">
+            <div class="w-12 h-12 bg-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
             </div>
-            <div>
-              <label class="block text-sm font-medium text-white mb-2">Email</label>
-              <input type="email" name="email" class="form-input w-full" placeholder="your@email.com" required>
+            <h3 class="text-lg font-semibold text-white mb-2">VR Projects</h3>
+            <p class="text-sm text-sub mb-4">Architecture visualization, therapy applications, or custom VR experiences</p>
+            <a href="mailto:frnki@frnki.dev?subject=VR%20Project%20Inquiry&body=Hi%20frnki%2C%0A%0AI'm%20interested%20in%20discussing%20a%20VR%20project.%20Here%20are%20the%20details%3A%0A%0AProject%20type%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0ADescription%3A%0A%0A%0AThanks!" class="bg-green hover:bg-green/80 text-bg px-4 py-2 rounded-lg font-medium transition text-sm">
+              Email About VR
+            </a>
+          </div>
+          
+          <!-- Security & Development -->
+          <div class="contact-card bg-[#1d2021] p-6 rounded-xl border border-border text-center">
+            <div class="w-12 h-12 bg-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
             </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Security & Dev</h3>
+            <p class="text-sm text-sub mb-4">Encryption tools, web development, or systems programming</p>
+            <a href="mailto:frnki@frnki.dev?subject=Development%20Project%20Inquiry&body=Hi%20frnki%2C%0A%0AI'm%20interested%20in%20your%20development%20services.%20Here%20are%20the%20details%3A%0A%0AProject%20type%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0ADescription%3A%0A%0A%0AThanks!" class="bg-green hover:bg-green/80 text-bg px-4 py-2 rounded-lg font-medium transition text-sm">
+              Email About Dev
+            </a>
           </div>
           
-          <div>
-            <label class="block text-sm font-medium text-white mb-2">Project Type</label>
-            <select name="project-type" class="form-input w-full" required>
-              <option value="">Select project type</option>
-              <option value="vr-development">VR Development</option>
-              <option value="architecture-visualization">Architecture Visualization</option>
-              <option value="security-tools">Security Tools</option>
-              <option value="web-development">Web Development</option>
-              <option value="consultation">Consultation</option>
-              <option value="other">Other</option>
-            </select>
+          <!-- General Inquiry -->
+          <div class="contact-card bg-[#1d2021] p-6 rounded-xl border border-border text-center">
+            <div class="w-12 h-12 bg-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">General Chat</h3>
+            <p class="text-sm text-sub mb-4">Questions, collaboration ideas, or just want to connect</p>
+            <a href="mailto:frnki@frnki.dev?subject=General%20Inquiry&body=Hi%20frnki%2C%0A%0A%0A%0AThanks!" class="bg-green hover:bg-green/80 text-bg px-4 py-2 rounded-lg font-medium transition text-sm">
+              Send Email
+            </a>
           </div>
-          
-          <div>
-            <label class="block text-sm font-medium text-white mb-2">Budget Range</label>
-            <select name="budget" class="form-input w-full">
-              <option value="">Select budget range (optional)</option>
-              <option value="under-1k">Under $1,000</option>
-              <option value="1k-5k">$1,000 - $5,000</option>
-              <option value="5k-10k">$5,000 - $10,000</option>
-              <option value="10k-plus">$10,000+</option>
-              <option value="discuss">Let's discuss</option>
-            </select>
+        </div>
+        
+        <!-- Alternative Contact Methods -->
+        <div class="text-center">
+          <p class="text-sub mb-4">Prefer a different approach?</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <span class="text-green">💬 Discord: .frnki</span>
+            <span class="text-sub">|</span>
+            <a href="https://github.com/frnki42" target="_blank" class="text-green hover:text-white transition">💻 GitHub: frnki42</a>
           </div>
-          
-          <div>
-            <label class="block text-sm font-medium text-white mb-2">Project Details</label>
-            <textarea name="details" rows="4" class="form-input w-full" placeholder="Tell me about your project, timeline, and any specific requirements..." required></textarea>
-          </div>
-          
-          <div class="text-center">
-            <button type="submit" class="bg-green hover:bg-green/80 text-bg px-8 py-3 rounded-lg font-medium transition contact-card">
-              Send Inquiry
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
     
