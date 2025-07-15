@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <!-- SEO & Social -->
-  <meta name="description" content="Portfolio of frnki – a VR developer and CS student crafting immersive Unreal Engine experiences." />
+  <meta name="description" content="Portfolio of frnki – VR developer, security engineer, and CS student crafting immersive Unreal Engine experiences and encryption tools." />
   <meta name="author" content="frnki" />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="frnki.dev" />
@@ -55,6 +55,77 @@
     }
     .fade-in { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
     html { scroll-behavior: smooth; }
+    
+    /* Typing Animation */
+    .typing-text {
+      overflow: hidden;
+      border-right: 2px solid #b8bb26;
+      white-space: nowrap;
+      animation: typing 3s steps(40, end), blink-caret 0.5s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #b8bb26 }
+    }
+    
+    /* Counter Animation */
+    .counter {
+      display: inline-block;
+    }
+    
+    /* Subtle Hover Effects */
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(184, 187, 38, 0.15);
+    }
+    
+    /* Skill Bar Animation */
+    .skill-bar {
+      background: rgba(68, 68, 68, 0.5);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 6px;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #b8bb26, #a8a11e);
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+      width: 0;
+    }
+    
+    .skill-progress.animate {
+      width: var(--progress);
+    }
+    
+    /* Subtle Background Pattern */
+    .hero-bg {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(184, 187, 38, 0.03) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(184, 187, 38, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="bg-bg text-text font-sans">
@@ -66,7 +137,7 @@
         <span class="text-white text-xl font-bold group-hover:text-green transition">.frnki</span>
       </a>
       <ul class="flex gap-6 text-sm font-medium">
-        <li><a href="index.html" class="text-text hover:text-green transition">home</a></li>
+        <li><a href="index.html" class="text-green font-semibold">home</a></li>
         <li><a href="projects.html" class="text-text hover:text-green transition">projects</a></li>
         <li><a href="about.html" class="text-text hover:text-green transition">about</a></li>
         <li><a href="contact.html" class="text-text hover:text-green transition">contact</a></li>
@@ -74,13 +145,179 @@
     </div>
   </nav>
 
-  <!-- 👁️ Hero -->
   <main class="px-6 md:px-16 lg:px-32 py-16 space-y-20">
-    <section class="text-center fade-target">
-      <h2 class="text-2xl font-semibold text-white">Crafting Virtual Worlds</h2>
-      <p class="mt-4 text-sub max-w-xl mx-auto">
+    <!-- Enhanced Hero Section -->
+    <section class="text-center fade-target hero-bg py-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        <span class="typing-text">Crafting Virtual Worlds</span>
+      </h1>
+      <p class="text-lg text-sub max-w-2xl mx-auto mb-8">
         .frnki — building immersive VR experiences for architecture and therapy using Unreal Engine 5 and a curious mind.
       </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="projects.html" class="bg-green hover:bg-green/80 text-bg px-6 py-3 rounded-lg font-medium transition hover-lift">
+          View Projects
+        </a>
+        <a href="contact.html" class="border border-green text-green hover:bg-green hover:text-bg px-6 py-3 rounded-lg font-medium transition hover-lift">
+          Get In Touch
+        </a>
+      </div>
+    </section>
+    
+    <!-- Featured Projects -->
+    <section class="fade-target">
+      <h2 class="text-2xl font-semibold text-white mb-8 text-center">Featured Work</h2>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover-lift">
+          <div class="w-full h-32 bg-gradient-to-br from-green/20 to-green/5 rounded-lg mb-4 flex items-center justify-center">
+            <span class="text-green text-sm font-medium">Architecture VR</span>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Architecture VR Showcase</h3>
+          <p class="text-sm text-sub mb-4">Real-time walkthroughs for clients using Unreal Engine and Meta Quest 3.</p>
+          <div class="flex gap-2 mb-4">
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">UE5</span>
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">VR</span>
+          </div>
+          <a href="projects.html" class="text-green hover:text-white text-sm transition">Learn More →</a>
+        </div>
+        
+        <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover-lift">
+          <div class="w-full h-32 bg-gradient-to-br from-green/20 to-green/5 rounded-lg mb-4 flex items-center justify-center">
+            <span class="text-green text-sm font-medium">crypt.frnki</span>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Encryption Tool</h3>
+          <p class="text-sm text-sub mb-4">Portable file encryption with ChaCha20-Poly1305 and military-grade security.</p>
+          <div class="flex gap-2 mb-4">
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">C</span>
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">Security</span>
+          </div>
+          <a href="https://github.com/frnki42/crypt.frnki" target="_blank" class="text-green hover:text-white text-sm transition">View on GitHub →</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Skills & Technologies -->
+    <section class="fade-target">
+      <h2 class="text-2xl font-semibold text-white mb-8 text-center">Skills & Technologies</h2>
+      <div class="max-w-3xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Development</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-sub">Unreal Engine 5</span>
+                  <span class="text-sm text-green">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="--progress: 85%" data-skill="unreal"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-sub">C/C++</span>
+                  <span class="text-sm text-green">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="--progress: 75%" data-skill="cpp"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-sub">VR Development</span>
+                  <span class="text-sm text-green">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="--progress: 80%" data-skill="vr"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Tools & Platforms</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-sub">Blender</span>
+                  <span class="text-sm text-green">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="--progress: 70%" data-skill="blender"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-sub">Linux/Bash</span>
+                  <span class="text-sm text-green">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="--progress: 85%" data-skill="linux"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-sub">Git/GitHub</span>
+                  <span class="text-sm text-green">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="--progress: 80%" data-skill="git"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Quick Stats -->
+    <section class="fade-target">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <div class="text-3xl font-bold text-green mb-2">
+              <span class="counter" data-count="3">0</span>+
+            </div>
+            <div class="text-sm text-sub">Projects</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-green mb-2">
+              <span class="counter" data-count="5">0</span>+
+            </div>
+            <div class="text-sm text-sub">Technologies</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-green mb-2">
+              <span class="counter" data-count="2">0</span>+
+            </div>
+            <div class="text-sm text-sub">Years Learning</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-green mb-2">
+              <span class="counter" data-count="42">0</span>
+            </div>
+            <div class="text-sm text-sub">42Vienna</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact CTA -->
+    <section class="fade-target">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-semibold text-white mb-4">Let's Work Together</h2>
+        <p class="text-sub mb-8">
+          Interested in VR development, architecture visualization, or security tools? Let's connect and build something amazing.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="contact.html" class="bg-green hover:bg-green/80 text-bg px-6 py-3 rounded-lg font-medium transition hover-lift">
+            Get In Touch
+          </a>
+          <a href="mailto:frnki@frnki.dev" class="text-green hover:text-white transition">
+            frnki@frnki.dev
+          </a>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="text-center text-sm text-sub py-6">
@@ -97,6 +334,61 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-target').forEach(el => observer.observe(el));
+    
+    // Counter animation function
+    function animateCounter(element) {
+      const target = parseInt(element.dataset.count);
+      const duration = 1500;
+      const increment = target / (duration / 16);
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+      }, 16);
+    }
+    
+    // Enhanced observer for skill bars and counters
+    const enhancedObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate skill bars
+          const skillBars = entry.target.querySelectorAll('.skill-progress');
+          skillBars.forEach(bar => {
+            setTimeout(() => {
+              bar.classList.add('animate');
+            }, 300);
+          });
+          
+          // Animate counters
+          const counters = entry.target.querySelectorAll('.counter');
+          counters.forEach(counter => {
+            animateCounter(counter);
+          });
+          
+          enhancedObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    // Observe sections with skill bars and counters
+    document.querySelectorAll('section').forEach(section => {
+      if (section.querySelector('.skill-progress') || section.querySelector('.counter')) {
+        enhancedObserver.observe(section);
+      }
+    });
+    
+    // Remove typing animation after it completes
+    setTimeout(() => {
+      const typingElement = document.querySelector('.typing-text');
+      if (typingElement) {
+        typingElement.style.borderRight = 'none';
+      }
+    }, 4000);
   </script>
 </body>
 </html>
