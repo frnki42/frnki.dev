@@ -9,10 +9,9 @@ This is a static portfolio website for frnki.dev - a personal portfolio showcasi
 ## Architecture
 
 **Static HTML Structure:**
-- `index.html` - Homepage with hero section
-- `about.html` - About page with personal information and skills
-- `projects.html` - Projects showcase page
-- `contact.html` - Contact information and social links
+- `index.html` - Homepage with hero section, skills, stats, and featured projects
+- `projects.html` - Projects showcase page with galleries and detailed descriptions
+- `contact.html` - Enhanced contact page with forms and collaboration details
 
 **Styling & Design:**
 - Uses Tailwind CSS via CDN for styling
