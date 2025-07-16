@@ -125,6 +125,7 @@
       z-index: -2;
       opacity: 0.4;
       filter: blur(1px);
+      border-radius: 12px;
     }
     
     .hero-bg::before {
@@ -139,17 +140,6 @@
       pointer-events: none;
     }
     
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 20% 80%, rgba(184, 187, 38, 0.08) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(184, 187, 38, 0.08) 0%, transparent 50%);
-      pointer-events: none;
-    }
   </style>
 </head>
 <body class="bg-bg text-text font-sans">
