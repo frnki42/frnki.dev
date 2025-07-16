@@ -26,6 +26,8 @@ This is a static portfolio website for frnki.dev - a personal portfolio showcasi
 
 **JavaScript Features:**
 - Intersection Observer for fade-in animations on scroll
+- Dynamic hero video rotation system with 31+ random MP4 backgrounds
+- Gallery navigation with looping functionality
 - Smooth scrolling behavior
 - Hover effects and transitions
 - Plausible Analytics integration
@@ -70,5 +72,31 @@ This is a static site with no build tools, package managers, or dependencies. Al
 
 - Root level HTML files for each page
 - All assets (favicon.ico, favicon.svg, favicon-96x96.png) in root
-- No subdirectories for assets or styles
+- Project images organized in `images/projects/` subdirectories
 - Inline CSS and JavaScript in each HTML file
+
+## Project Images
+
+**Architecture VR:**
+- `images/projects/architecture-vr/METRiK_00.png`
+- `images/projects/architecture-vr/METRiK_01.png`
+
+**Exposure Therapy VR:**
+- `images/projects/therapy-vr/exposure_00.png`
+- `images/projects/therapy-vr/exposure_01.png`
+
+**Other Projects:**
+- `images/projects/crypt.frnki/crypt_frnki.png`
+- `images/projects/vid.frnki/vid.frnki.png`
+
+## Hero Video System
+
+The homepage features a dynamic background video system that randomly cycles through 31+ architectural animation MP4s from Google's Flow TV. Videos are loaded sequentially with smart logic to prevent repeats until all have been shown.
+
+## Gallery System
+
+Project galleries support:
+- Image navigation with prev/next buttons
+- Indicator dots for direct navigation
+- Modal full-screen viewing
+- Automatic looping (e.g., architecture: 2 images, therapy: 2 images)
