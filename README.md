@@ -14,7 +14,7 @@ A personal portfolio website showcasing VR development work, Unreal Engine proje
 
 - **Architecture VR**: Real-time walkthroughs using Unreal Engine 5 and Meta Quest 3
 - **Exposure Therapy VR**: Medical VR application for phobia treatment
-- **crypt.frnki**: Military-grade file encryption with ChaCha20-Poly1305
+- **crypt.frnki**: File encryption tool built while learning cryptography
 - **vid.frnki**: Minimalist YouTube client with gruvbox aesthetics
 - **42Vienna Core Projects**: minishell, so_long, and more
 
