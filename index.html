@@ -172,11 +172,10 @@
     <!-- Enhanced Hero Section -->
     <section class="text-center fade-target hero-bg py-16 md:py-20">
       <video 
-        src="https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/25d07490-29b7-4e48-9f9b-d904b857d30d.mp4" 
+        id="hero-video"
         class="hero-video"
         autoplay 
         muted 
-        loop 
         preload="metadata"
         playsinline
         aria-label="Architectural Animation Background">
@@ -427,6 +426,41 @@
         typingElement.style.borderRight = 'none';
       }
     }, 4000);
+    
+    // Hero video rotation system
+    const heroVideos = [
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/25d07490-29b7-4e48-9f9b-d904b857d30d.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/099511cc-9079-4752-b58f-8ed3875d76a3.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/f92318aa-946d-4272-a153-fe65e053d7fa.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/87314702-18ca-4dd7-8748-c9c55181175e.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/82dbef40-e8a7-4477-b23e-125ea8905466.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/60dee9f5-f02b-4550-941e-12b94e39057e.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/e75fe5ae-b7fa-44fc-a783-f608c96d1697.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/d0c60150-652c-4d88-85bf-de70bb491152.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/0fde4267-4e5c-4726-8183-8a0f547b629d.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/7234b69b-b31a-4de3-8b78-ccee61853eb4.mp4'
+    ];
+    
+    let currentVideoIndex = 0;
+    const heroVideo = document.getElementById('hero-video');
+    
+    function loadNextVideo() {
+      heroVideo.src = heroVideos[currentVideoIndex];
+      heroVideo.load();
+      currentVideoIndex = (currentVideoIndex + 1) % heroVideos.length;
+    }
+    
+    // Load first video
+    loadNextVideo();
+    
+    // When video ends, load next one
+    heroVideo.addEventListener('ended', loadNextVideo);
+    
+    // Fallback: if video fails to load, try next one
+    heroVideo.addEventListener('error', () => {
+      console.warn('Video failed to load, trying next one');
+      loadNextVideo();
+    });
   </script>
 </body>
 </html>
