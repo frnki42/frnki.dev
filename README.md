@@ -1,11 +1,11 @@
 # frnki.dev
 
-A personal portfolio website showcasing VR development work, Unreal Engine projects, and computer science studies.
+A personal portfolio website showcasing systems programming expertise, VR development work, and 42Vienna computer science projects.
 
 ## Features
 
 - **Dynamic Hero Background**: Rotating architectural animations with 31+ random MP4 videos
-- **Project Showcase**: Interactive galleries for VR projects, security tools, and 42Vienna coursework
+- **Project Showcase**: Interactive galleries with detailed expandable sections for VR projects, security tools, and 42Vienna coursework
 - **Responsive Design**: Clean, dark theme with mobile-first approach
 - **Modern UI**: Tailwind CSS with custom animations and hover effects
 - **Performance Optimized**: Static HTML/CSS/JS with no build tools required
@@ -14,9 +14,9 @@ A personal portfolio website showcasing VR development work, Unreal Engine proje
 
 - **Architecture VR**: Real-time walkthroughs using Unreal Engine 5 and Meta Quest 3
 - **Exposure Therapy VR**: Medical VR application for phobia treatment
-- **crypt.frnki**: File encryption tool built while learning cryptography
+- **crypt.frnki**: File encryption tool with ChaCha20-Poly1305 AEAD and Argon2id
 - **vid.frnki**: Minimalist YouTube client with gruvbox aesthetics
-- **42Vienna Core Projects**: minishell, so_long, and more
+- **42Vienna Core Projects**: minishell, philosophers, push_swap, so_long, minitalk, born2beroot, and more
 
 ## Tech Stack
 
