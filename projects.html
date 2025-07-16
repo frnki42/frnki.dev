@@ -447,9 +447,8 @@
         
         <!-- Image Gallery -->
         <div class="gallery-container mb-4" data-gallery="therapy">
-          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Therapy+VR+Interface" alt="Therapy VR Interface" class="gallery-image" data-index="0">
-          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Safe+Environment" alt="Safe Environment" class="gallery-image hidden" data-index="1">
-          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Progress+Tracking" alt="Progress Tracking" class="gallery-image hidden" data-index="2">
+          <img src="images/projects/therapy-vr/exposure_00.png" alt="Therapy VR Interface" class="gallery-image" data-index="0" onclick="showImageModal('images/projects/therapy-vr/exposure_00.png', 'Therapy VR Interface')">
+          <img src="images/projects/therapy-vr/exposure_01.png" alt="Safe Environment" class="gallery-image hidden" data-index="1" onclick="showImageModal('images/projects/therapy-vr/exposure_01.png', 'Safe Environment')">
           
           <button class="gallery-nav prev" onclick="changeImage('therapy', -1)">‹</button>
           <button class="gallery-nav next" onclick="changeImage('therapy', 1)">›</button>
@@ -457,7 +456,6 @@
           <div class="gallery-indicators">
             <span class="gallery-indicator active" onclick="showImage('therapy', 0)"></span>
             <span class="gallery-indicator" onclick="showImage('therapy', 1)"></span>
-            <span class="gallery-indicator" onclick="showImage('therapy', 2)"></span>
           </div>
         </div>
         
@@ -494,15 +492,6 @@
           </div>
         </div>
         
-        <!-- Video Demo -->
-        <div class="mt-4">
-          <button class="bg-green/20 hover:bg-green/30 text-green px-4 py-2 rounded-lg text-sm transition flex items-center gap-2" onclick="showVideo('therapy')">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            Watch Demo
-          </button>
-        </div>
       </div>
       
       <!-- minishell -->
