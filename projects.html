@@ -376,9 +376,8 @@
         
         <!-- Image Gallery -->
         <div class="gallery-container mb-4" data-gallery="architecture">
-          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Architecture+VR+Demo" alt="Architecture VR Demo" class="gallery-image" data-index="0">
-          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Interior+Walkthrough" alt="Interior Walkthrough" class="gallery-image hidden" data-index="1">
-          <img src="https://via.placeholder.com/400x225/1d2021/b8bb26?text=Client+Presentation" alt="Client Presentation" class="gallery-image hidden" data-index="2">
+          <img src="images/projects/architecture-vr/METRiK_00.png" alt="Architecture VR - Interior Visualization" class="gallery-image" data-index="0" onclick="showImageModal('images/projects/architecture-vr/METRiK_00.png', 'Architecture VR - Interior Visualization')">
+          <img src="images/projects/architecture-vr/METRiK_01.png" alt="Architecture VR - Room Walkthrough" class="gallery-image hidden" data-index="1" onclick="showImageModal('images/projects/architecture-vr/METRiK_01.png', 'Architecture VR - Room Walkthrough')">
           
           <button class="gallery-nav prev" onclick="changeImage('architecture', -1)">‹</button>
           <button class="gallery-nav next" onclick="changeImage('architecture', 1)">›</button>
@@ -386,7 +385,6 @@
           <div class="gallery-indicators">
             <span class="gallery-indicator active" onclick="showImage('architecture', 0)"></span>
             <span class="gallery-indicator" onclick="showImage('architecture', 1)"></span>
-            <span class="gallery-indicator" onclick="showImage('architecture', 2)"></span>
           </div>
         </div>
         
@@ -423,13 +421,19 @@
           </div>
         </div>
         
-        <!-- Video Demo -->
-        <div class="mt-4">
-          <button class="bg-green/20 hover:bg-green/30 text-green px-4 py-2 rounded-lg text-sm transition flex items-center gap-2" onclick="showVideo('architecture')">
+        <!-- Video Demos -->
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button class="bg-green/20 hover:bg-green/30 text-green px-4 py-2 rounded-lg text-sm transition flex items-center gap-2" onclick="showVideo('architecture_short')">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z"/>
             </svg>
-            Watch Demo
+            Quick Demo (5s)
+          </button>
+          <button class="bg-green/20 hover:bg-green/30 text-green px-4 py-2 rounded-lg text-sm transition flex items-center gap-2" onclick="showVideo('architecture_full')">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            Full Demo (2min)
           </button>
         </div>
       </div>
@@ -677,7 +681,7 @@
     
     // Gallery functionality
     const galleries = {
-      architecture: { currentIndex: 0, images: 3 },
+      architecture: { currentIndex: 0, images: 2 },
       therapy: { currentIndex: 0, images: 3 }
     };
     
@@ -732,9 +736,10 @@
       const modal = document.getElementById('modal');
       const modalBody = document.getElementById('modal-body');
       
-      // Sample video embeddings - replace with actual video URLs
+      // Video embeddings
       const videos = {
-        architecture: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+        architecture_short: 'https://www.youtube.com/embed/Dj3u-Tm5P_g',
+        architecture_full: 'https://www.youtube.com/embed/Jq8BxHzMmQo',
         therapy: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
       };
       
