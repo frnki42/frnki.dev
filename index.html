@@ -194,7 +194,7 @@
       <h2 class="text-2xl font-semibold text-white mb-8 text-center">~/projects</h2>
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover-lift">
-          <div class="w-full h-32 bg-gradient-to-br from-green/20 to-green/5 rounded-lg mb-4 overflow-hidden cursor-pointer flex items-center justify-center p-2" onclick="window.open('projects.html#architecture-vr', '_blank')">
+          <div class="w-full h-32 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg mb-4 overflow-hidden cursor-pointer flex items-center justify-center p-2" onclick="window.open('projects.html#architecture-vr', '_blank')">
             <img src="images/projects/architecture-vr/METRiK_01.png" alt="Architecture VR - Room Walkthrough" class="max-w-full max-h-full object-cover rounded hover:scale-105 transition-transform duration-300">
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">Architecture VR Showcase</h3>
@@ -208,7 +208,7 @@
         </div>
         
         <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover-lift">
-          <div class="w-full h-32 bg-gradient-to-br from-green/20 to-green/5 rounded-lg mb-4 overflow-hidden cursor-pointer flex items-center justify-center p-2" onclick="window.open('https://github.com/frnki42/crypt.frnki', '_blank')">
+          <div class="w-full h-32 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg mb-4 overflow-hidden cursor-pointer flex items-center justify-center p-2" onclick="window.open('https://github.com/frnki42/crypt.frnki', '_blank')">
             <img src="images/projects/crypt.frnki/crypt_frnki.png" alt="crypt.frnki encryption tool" class="max-w-full max-h-full object-contain rounded hover:scale-105 transition-transform duration-300">
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">crypt.frnki</h3>
@@ -417,7 +417,7 @@
       }
     }, 4000);
     
-    // Hero video rotation system
+    // Hero video rotation system with random selection
     const heroVideos = [
       'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/25d07490-29b7-4e48-9f9b-d904b857d30d.mp4',
       'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/099511cc-9079-4752-b58f-8ed3875d76a3.mp4',
@@ -428,22 +428,59 @@
       'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/e75fe5ae-b7fa-44fc-a783-f608c96d1697.mp4',
       'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/d0c60150-652c-4d88-85bf-de70bb491152.mp4',
       'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/0fde4267-4e5c-4726-8183-8a0f547b629d.mp4',
-      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/7234b69b-b31a-4de3-8b78-ccee61853eb4.mp4'
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/7234b69b-b31a-4de3-8b78-ccee61853eb4.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/818f3e30-e054-48f7-8b59-c1ef72264550.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/b8e0556a-78db-45a9-933e-51a9bc28476d.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/757e4224-b539-4f88-a39c-4fc0de22bf5c.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/c1fb6542-ce18-41f3-a28f-b137333591c9.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/a9d11cb3-6c1f-4a86-b3ad-12dec9b767a6.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/9def4bc5-43a4-435b-9f44-a8decfb872bf.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/2e93430b-f34e-4112-b527-91afe8868deb.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/a500999f-8842-46cb-bf61-2c75e773fe53.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/50effe4e-fdb3-4f29-a63d-ce927c91907d.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/d51083c6-cbbc-4f51-a655-9ec00a8f15fe.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/a6bea016-bc7c-4b6c-b0f0-4ae1cb7ba53a.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/d293ea40-b1a0-46cd-a44f-f62c6c2ad9d2.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/c40c1ca0-b5f8-4230-9ea8-b448d7d454aa.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/c217cd7f-7c86-42cf-b2df-eafb7f7e8972.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/c955c791-1f15-41c0-b64b-2cd0cae72a30.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/327bf17b-9d99-41eb-875d-a3cf4bdb56d8.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/3499a1db-1e8f-4a9b-9e23-d4711bc69734.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/c14ab831-ed9f-41fe-9c42-dd5ab9b9f14b.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/8d255cbd-3177-4cae-b3a6-db35434a7f7c.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/77ec493b-75cf-4891-81ff-4dd3f388a028.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/1361fb67-784f-4ace-b511-0b2fbd5d6fec.mp4'
     ];
     
     let currentVideoIndex = 0;
+    let playedVideos = new Set();
     const heroVideo = document.getElementById('hero-video');
     
+    function getRandomVideo() {
+      // If we've played all videos, reset the played set
+      if (playedVideos.size >= heroVideos.length) {
+        playedVideos.clear();
+      }
+      
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * heroVideos.length);
+      } while (playedVideos.has(randomIndex));
+      
+      playedVideos.add(randomIndex);
+      return randomIndex;
+    }
+    
     function loadNextVideo() {
+      currentVideoIndex = getRandomVideo();
       heroVideo.src = heroVideos[currentVideoIndex];
       heroVideo.load();
-      currentVideoIndex = (currentVideoIndex + 1) % heroVideos.length;
     }
     
     // Load first video
     loadNextVideo();
     
-    // When video ends, load next one
+    // When video ends, load next random one
     heroVideo.addEventListener('ended', loadNextVideo);
     
     // Fallback: if video fails to load, try next one
