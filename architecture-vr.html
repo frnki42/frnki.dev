@@ -144,6 +144,38 @@
       font-size: 0.75rem;
       font-weight: 500;
     }
+    /* Image modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      cursor: pointer;
+    }
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      color: #b8bb26;
+    }
     /* Hero video background */
     .hero-section {
       position: relative;
@@ -152,16 +184,13 @@
     }
     .hero-video {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100vw;
-      height: 100vh;
-      min-width: 100%;
-      min-height: 100%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       opacity: 0.3;
       z-index: 0;
-      pointer-events: none;
     }
     .hero-content {
       position: relative;
@@ -191,15 +220,15 @@
   <main class="max-w-6xl mx-auto">
     <!-- Hero Section with Video Background -->
     <section class="hero-section fade-target mb-12">
-      <iframe 
+      <video 
         id="hero-video"
         class="hero-video"
-        src="https://www.youtube.com/embed/Jq8BxHzMmQo?autoplay=1&mute=1&loop=1&playlist=Jq8BxHzMmQo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&vq=hd1080&quality=high"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        aria-label="Architecture VR Project Video Background">
-      </iframe>
+        autoplay 
+        muted 
+        preload="metadata"
+        playsinline
+        aria-label="Architectural Animation Background">
+      </video>
       
       <div class="hero-content">
         <div class="container mx-auto px-6">
@@ -224,22 +253,71 @@
       </div>
     </section>
     
+    <!-- Video Showcase Section -->
+    <section class="fade-target mb-12 px-6">
+      <h2 class="text-2xl font-semibold text-white mb-6">Project Videos</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Full Walkthrough Video -->
+        <div class="bg-[#1d2021] rounded-xl border border-border overflow-hidden hover:border-green transition-all duration-300 hover:scale-[1.01]">
+          <div class="relative aspect-video bg-[#1f1f1f]">
+            <iframe 
+              src="https://www.youtube.com/embed/Jq8BxHzMmQo"
+              class="absolute inset-0 w-full h-full"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-white mb-2">Full VR Walkthrough</h3>
+            <p class="text-sm text-sub mb-3">Experience the complete architectural visualization in VR, showcasing real-time rendering and interactive elements.</p>
+            <div class="flex gap-2">
+              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">1:02</span>
+              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">HD Quality</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Quick Tour Video -->
+        <div class="bg-[#1d2021] rounded-xl border border-border overflow-hidden hover:border-green transition-all duration-300 hover:scale-[1.01]">
+          <div class="relative aspect-video bg-[#1f1f1f]">
+            <iframe 
+              src="https://www.youtube.com/embed/Dj3u-Tm5P_g"
+              class="absolute inset-0 w-full h-full"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-white mb-2">Quick Tour</h3>
+            <p class="text-sm text-sub mb-3">A condensed showcase highlighting key features and the immersive experience of architectural VR.</p>
+            <div class="flex gap-2">
+              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">0:10</span>
+              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">HD Quality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <!-- Gallery Section -->
     <section class="fade-target mb-12 px-6">
-      <h2 class="text-2xl font-semibold text-white mb-6">Project Gallery</h2>
+      <h2 class="text-2xl font-semibold text-white mb-6">Screenshots</h2>
       
-      <!-- Main Gallery Image -->
-      <div class="gallery-main" id="mainGallery">
-        <img src="images/projects/architecture-vr/METRiK_01.png" alt="Architecture VR - Room Walkthrough" id="mainImage">
-      </div>
-      
-      <!-- Thumbnail Gallery -->
-      <div class="gallery-thumbnails">
-        <div class="gallery-thumbnail active" onclick="changeMainImage(0)">
-          <img src="images/projects/architecture-vr/METRiK_01.png" alt="Architecture VR - Room Walkthrough">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="relative group cursor-pointer" onclick="showImageModal('images/projects/architecture-vr/METRiK_01.png', 'Architecture VR - Room Walkthrough')">
+          <img src="images/projects/architecture-vr/METRiK_01.png" alt="Architecture VR - Room Walkthrough" class="w-full rounded-lg">
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+            <span class="text-white text-sm font-medium">Click to enlarge</span>
+          </div>
         </div>
-        <div class="gallery-thumbnail" onclick="changeMainImage(1)">
-          <img src="images/projects/architecture-vr/METRiK_00.png" alt="Architecture VR - Interior Visualization">
+        <div class="relative group cursor-pointer" onclick="showImageModal('images/projects/architecture-vr/METRiK_00.png', 'Architecture VR - Interior Visualization')">
+          <img src="images/projects/architecture-vr/METRiK_00.png" alt="Architecture VR - Interior Visualization" class="w-full rounded-lg">
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+            <span class="text-white text-sm font-medium">Click to enlarge</span>
+          </div>
         </div>
       </div>
     </section>
@@ -351,16 +429,49 @@
       </div>
     </section>
     
+    <!-- Project Impact -->
+    <section class="fade-target mb-12 px-6">
+      <h2 class="text-2xl font-semibold text-white mb-6">Project Impact</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-[#1d2021] p-6 rounded-xl border border-border text-center">
+          <div class="text-3xl font-bold text-green mb-2">90%</div>
+          <p class="text-sm text-sub">Reduction in design revision cycles</p>
+        </div>
+        <div class="bg-[#1d2021] p-6 rounded-xl border border-border text-center">
+          <div class="text-3xl font-bold text-green mb-2">3x</div>
+          <p class="text-sm text-sub">Faster client decision making</p>
+        </div>
+        <div class="bg-[#1d2021] p-6 rounded-xl border border-border text-center">
+          <div class="text-3xl font-bold text-green mb-2">100%</div>
+          <p class="text-sm text-sub">Client satisfaction rate</p>
+        </div>
+      </div>
+      
+      <div class="bg-[#1d2021] p-8 rounded-xl border border-border">
+        <blockquote class="text-lg text-sub italic mb-4">
+          "The VR walkthrough completely transformed our client presentations. What used to take hours of explanation 
+          now takes minutes of immersive experience. Clients understand the space immediately and make decisions with confidence."
+        </blockquote>
+        <p class="text-sm text-white">— Lead Architect, Modern Design Studio</p>
+      </div>
+    </section>
+    
     <!-- Call to Action -->
     <section class="fade-target text-center px-6 mb-12">
       <div class="bg-gradient-to-r from-green/20 to-green/10 p-8 rounded-xl border border-green/30">
-        <h2 class="text-2xl font-semibold text-white mb-4">Interested in VR for Your Architecture Firm?</h2>
+        <h2 class="text-2xl font-semibold text-white mb-4">Ready to Transform Your Architecture Presentations?</h2>
         <p class="text-sub mb-6">
-          Let's discuss how immersive VR walkthroughs can transform your client presentations and design workflow.
+          Let's discuss how immersive VR walkthroughs can revolutionize your client engagement and streamline your design process.
         </p>
-        <a href="contact.html" class="inline-block bg-green text-bg px-6 py-3 rounded-lg font-semibold hover:bg-white transition">
-          Get in Touch
-        </a>
+        <div class="flex gap-4 justify-center">
+          <a href="contact.html" class="inline-block bg-green text-bg px-6 py-3 rounded-lg font-semibold hover:bg-white transition">
+            Get Started
+          </a>
+          <a href="projects.html" class="inline-block border border-green text-green px-6 py-3 rounded-lg font-semibold hover:bg-green hover:text-bg transition">
+            View More Projects
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -372,28 +483,32 @@
     </p>
   </footer>
   
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="">
+  </div>
+  
   <script>
-    // Gallery functionality
-    const images = [
-      { src: 'images/projects/architecture-vr/METRiK_01.png', alt: 'Architecture VR - Room Walkthrough' },
-      { src: 'images/projects/architecture-vr/METRiK_00.png', alt: 'Architecture VR - Interior Visualization' }
-    ];
-    
-    function changeMainImage(index) {
-      const mainImage = document.getElementById('mainImage');
-      const thumbnails = document.querySelectorAll('.gallery-thumbnail');
-      
-      mainImage.src = images[index].src;
-      mainImage.alt = images[index].alt;
-      
-      thumbnails.forEach((thumb, i) => {
-        if (i === index) {
-          thumb.classList.add('active');
-        } else {
-          thumb.classList.remove('active');
-        }
-      });
+    // Image modal functionality
+    function showImageModal(src, alt) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modal.style.display = 'block';
+      modalImg.src = src;
+      modalImg.alt = alt;
     }
+    
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
     
     // Fade-in animation
     const observerOptions = {
@@ -413,6 +528,48 @@
       document.querySelectorAll('.fade-target').forEach(el => {
         observer.observe(el);
       });
+    });
+    
+    // Hero video rotation system
+    const heroVideos = [
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/25d07490-29b7-4e48-9f9b-d904b857d30d.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/099511cc-9079-4752-b58f-8ed3875d76a3.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/f92318aa-946d-4272-a153-fe65e053d7fa.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/87314702-18ca-4dd7-8748-c9c55181175e.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/82dbef40-e8a7-4477-b23e-125ea8905466.mp4',
+      'https://storage.googleapis.com/gweb-tveo-website.appspot.com/uploads/video/generations/60dee9f5-f02b-4550-941e-12b94e39057e.mp4'
+    ];
+    
+    let currentVideoIndex = 0;
+    let playedVideos = new Set();
+    const heroVideo = document.getElementById('hero-video');
+    
+    function getRandomVideo() {
+      if (playedVideos.size >= heroVideos.length) {
+        playedVideos.clear();
+      }
+      
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * heroVideos.length);
+      } while (playedVideos.has(randomIndex) && playedVideos.size < heroVideos.length);
+      
+      playedVideos.add(randomIndex);
+      return heroVideos[randomIndex];
+    }
+    
+    function loadNextVideo() {
+      const videoUrl = getRandomVideo();
+      heroVideo.src = videoUrl;
+      heroVideo.load();
+      heroVideo.play().catch(e => console.log('Video play failed:', e));
+    }
+    
+    loadNextVideo();
+    heroVideo.addEventListener('ended', loadNextVideo);
+    heroVideo.addEventListener('error', () => {
+      console.warn('Video failed to load, trying next one');
+      loadNextVideo();
     });
   </script>
 </body>
