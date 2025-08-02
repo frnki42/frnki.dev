@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Architecture VR Showcase - frnki.dev</title>
+  <title>Architecture VR Showcase - .frnki</title>
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -148,12 +148,17 @@
 </head>
 <body class="bg-bg text-text">
   <!-- Navigation -->
-  <nav class="container mx-auto p-6 flex justify-between items-center">
-    <a href="/" class="text-white text-xl font-semibold hover:text-green transition hover:rotate-[-2deg] inline-block">.frnki</a>
-    <div class="flex gap-6">
-      <a href="/" class="text-sub hover:text-white transition">Home</a>
-      <a href="projects.html" class="text-sub hover:text-white transition">Projects</a>
-      <a href="contact.html" class="text-sub hover:text-white transition">Contact</a>
+  <nav class="sticky top-0 z-50 bg-[#1d2021]/90 backdrop-blur-md border-b border-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="favicon.ico" alt=".frnki logo" class="h-6 w-6 transition-transform duration-300 group-hover:rotate-12 drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" />
+        <span class="text-white text-xl font-bold group-hover:text-green transition">.frnki</span>
+      </a>
+      <ul class="flex gap-6 text-sm font-medium">
+        <li><a href="index.html" class="text-text hover:text-green transition">home</a></li>
+        <li><a href="projects.html" class="text-text hover:text-green transition">projects</a></li>
+        <li><a href="contact.html" class="text-text hover:text-green transition">contact</a></li>
+      </ul>
     </div>
   </nav>
   
@@ -286,7 +291,7 @@
       <div class="bg-[#1d2021] p-8 rounded-xl border border-border">
         <h3 class="text-lg font-semibold text-white mb-4">Development Stack</h3>
         <ul class="text-sub space-y-2 mb-6">
-          <li>• <strong class="text-white">Engine:</strong> Unreal Engine 5.3 with Nanite virtualized geometry</li>
+          <li>• <strong class="text-white">Engine:</strong> Unreal Engine 5.5 with Nanite virtualized geometry</li>
           <li>• <strong class="text-white">VR Framework:</strong> Meta XR SDK for Quest optimization</li>
           <li>• <strong class="text-white">Scripting:</strong> Blueprint visual scripting for rapid iteration</li>
           <li>• <strong class="text-white">Asset Pipeline:</strong> Datasmith for CAD to UE5 workflow</li>
