@@ -144,6 +144,31 @@
       font-size: 0.75rem;
       font-weight: 500;
     }
+    /* Hero video background */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      background: #282828;
+    }
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      opacity: 0.3;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to bottom, rgba(40, 40, 40, 0.8), rgba(40, 40, 40, 0.9));
+      padding: 3rem 0;
+    }
   </style>
 </head>
 <body class="bg-bg text-text">
@@ -163,30 +188,44 @@
   </nav>
   
   <!-- Main Content -->
-  <main class="container mx-auto px-6 py-12 max-w-6xl">
-    <!-- Hero Section -->
-    <section class="fade-target mb-12">
-      <div class="flex items-center gap-4 mb-6">
-        <h1 class="text-4xl font-semibold text-white">Architecture VR Showcase</h1>
-        <span class="status-badge">In Development</span>
-      </div>
+  <main class="max-w-6xl mx-auto">
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section fade-target mb-12">
+      <iframe 
+        id="hero-video"
+        class="hero-video"
+        src="https://www.youtube.com/embed/Jq8BxHzMmQo?autoplay=1&mute=1&loop=1&playlist=Jq8BxHzMmQo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&vq=hd1080&quality=high"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        aria-label="Architecture VR Project Video Background">
+      </iframe>
       
-      <p class="text-xl text-sub mb-8">
-        Transforming how architecture offices present designs to clients through immersive real-time VR walkthroughs.
-      </p>
-      
-      <!-- Tech Stack -->
-      <div class="flex flex-wrap gap-2">
-        <span class="tech-badge">Unreal Engine 5</span>
-        <span class="tech-badge">Meta Quest 3</span>
-        <span class="tech-badge">Blueprints</span>
-        <span class="tech-badge">VR Development</span>
-        <span class="tech-badge">Real-time Rendering</span>
+      <div class="hero-content">
+        <div class="container mx-auto px-6">
+          <div class="flex items-center gap-4 mb-6">
+            <h1 class="text-4xl font-semibold text-white">Architecture VR Showcase</h1>
+            <span class="status-badge">In Development</span>
+          </div>
+          
+          <p class="text-xl text-sub mb-8">
+            Transforming how architecture offices present designs to clients through immersive real-time VR walkthroughs.
+          </p>
+          
+          <!-- Tech Stack -->
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-badge">Unreal Engine 5</span>
+            <span class="tech-badge">Meta Quest 3</span>
+            <span class="tech-badge">Blueprints</span>
+            <span class="tech-badge">VR Development</span>
+            <span class="tech-badge">Real-time Rendering</span>
+          </div>
+        </div>
       </div>
     </section>
     
     <!-- Gallery Section -->
-    <section class="fade-target mb-12">
+    <section class="fade-target mb-12 px-6">
       <h2 class="text-2xl font-semibold text-white mb-6">Project Gallery</h2>
       
       <!-- Main Gallery Image -->
@@ -206,7 +245,7 @@
     </section>
     
     <!-- Overview Section -->
-    <section class="fade-target mb-12">
+    <section class="fade-target mb-12 px-6">
       <h2 class="text-2xl font-semibold text-white mb-6">Project Overview</h2>
       
       <div class="bg-[#1d2021] p-8 rounded-xl border border-border">
@@ -230,7 +269,7 @@
     </section>
     
     <!-- Key Features -->
-    <section class="fade-target mb-12">
+    <section class="fade-target mb-12 px-6">
       <h2 class="text-2xl font-semibold text-white mb-6">Key Features</h2>
       
       <div class="feature-grid">
@@ -285,7 +324,7 @@
     </section>
     
     <!-- Technical Implementation -->
-    <section class="fade-target mb-12">
+    <section class="fade-target mb-12 px-6">
       <h2 class="text-2xl font-semibold text-white mb-6">Technical Implementation</h2>
       
       <div class="bg-[#1d2021] p-8 rounded-xl border border-border">
@@ -313,7 +352,7 @@
     </section>
     
     <!-- Call to Action -->
-    <section class="fade-target text-center">
+    <section class="fade-target text-center px-6 mb-12">
       <div class="bg-gradient-to-r from-green/20 to-green/10 p-8 rounded-xl border border-green/30">
         <h2 class="text-2xl font-semibold text-white mb-4">Interested in VR for Your Architecture Firm?</h2>
         <p class="text-sub mb-6">
