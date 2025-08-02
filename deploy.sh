@@ -24,7 +24,7 @@ fi
 echo "📤 Pushing to GitHub..."
 git push origin main
 
-# Sync files to VPS using rsync (avoids git permission issues)
+# Sync files to VPS using rsync
 echo "📦 Syncing files to VPS..."
 rsync -avz --delete \
     --exclude '.git' \
