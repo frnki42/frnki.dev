@@ -198,6 +198,23 @@
       background: linear-gradient(to bottom, rgba(40, 40, 40, 0.8), rgba(40, 40, 40, 0.9));
       padding: 3rem 0;
     }
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 2rem 0;
+      }
+      .hero-video {
+        display: none; /* Hide video on mobile for performance */
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+      }
+    }
   </style>
 </head>
 <body class="bg-bg text-text">
@@ -259,44 +276,40 @@
       
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <!-- Full Walkthrough Video -->
-        <div class="bg-[#1d2021] rounded-xl border border-border overflow-hidden hover:border-green transition-all duration-300 hover:scale-[1.01]">
-          <div class="relative aspect-video bg-[#1f1f1f]">
+        <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover-lift">
+          <div class="w-full h-48 bg-[#282828] rounded-lg mb-4 overflow-hidden">
             <iframe 
               src="https://www.youtube.com/embed/Jq8BxHzMmQo"
-              class="absolute inset-0 w-full h-full"
+              class="w-full h-full"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
           </div>
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-white mb-2">Full VR Walkthrough</h3>
-            <p class="text-sm text-sub mb-3">Experience the complete architectural visualization in VR, showcasing real-time rendering and interactive elements.</p>
-            <div class="flex gap-2">
-              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">2:01</span>
-              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">HD Quality</span>
-            </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Full VR Walkthrough</h3>
+          <p class="text-sm text-sub mb-4">Experience the complete architectural visualization in VR, showcasing real-time rendering and interactive elements.</p>
+          <div class="flex gap-2 mb-4">
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">2:01</span>
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">HD Quality</span>
           </div>
         </div>
         
         <!-- Quick Tour Video -->
-        <div class="bg-[#1d2021] rounded-xl border border-border overflow-hidden hover:border-green transition-all duration-300 hover:scale-[1.01]">
-          <div class="relative aspect-video bg-[#1f1f1f]">
+        <div class="bg-[#1d2021] p-6 rounded-xl border border-border hover-lift">
+          <div class="w-full h-48 bg-[#282828] rounded-lg mb-4 overflow-hidden">
             <iframe 
               src="https://www.youtube.com/embed/Dj3u-Tm5P_g"
-              class="absolute inset-0 w-full h-full"
+              class="w-full h-full"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
           </div>
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-white mb-2">Quick Tour</h3>
-            <p class="text-sm text-sub mb-3">A condensed showcase highlighting key features and the immersive experience of architectural VR.</p>
-            <div class="flex gap-2">
-              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">0:10</span>
-              <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">HD Quality</span>
-            </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Quick Tour</h3>
+          <p class="text-sm text-sub mb-4">A condensed showcase highlighting key features and the immersive experience of architectural VR.</p>
+          <div class="flex gap-2 mb-4">
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">0:10</span>
+            <span class="text-xs bg-green/20 text-green px-2 py-1 rounded">HD Quality</span>
           </div>
         </div>
       </div>
@@ -464,11 +477,11 @@
         <p class="text-sub mb-6">
           Let's discuss how immersive VR walkthroughs can revolutionize your client engagement and streamline your design process.
         </p>
-        <div class="flex gap-4 justify-center">
-          <a href="contact.html" class="inline-block bg-green text-bg px-6 py-3 rounded-lg font-semibold hover:bg-white transition">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="contact.html" class="inline-block bg-green text-bg px-6 py-3 rounded-lg font-semibold hover:bg-white transition text-center">
             Get Started
           </a>
-          <a href="projects.html" class="inline-block border border-green text-green px-6 py-3 rounded-lg font-semibold hover:bg-green hover:text-bg transition">
+          <a href="projects.html" class="inline-block border border-green text-green px-6 py-3 rounded-lg font-semibold hover:bg-green hover:text-bg transition text-center">
             View More Projects
           </a>
         </div>
