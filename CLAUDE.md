@@ -17,6 +17,17 @@ npx http-server
 # Access at http://localhost:8000
 ```
 
+**Deployment:**
+```bash
+# Deploy to production VPS (94.130.150.34)
+./deploy.sh
+
+# The deploy script will:
+# 1. Check for uncommitted changes
+# 2. Push to GitHub (frnki42/frnki.dev)
+# 3. Rsync files to VPS at /var/www/frnki.dev
+```
+
 **Testing & Validation:**
 - No tests, linting, or build process - this is pure static HTML/CSS/JS
 - Validate HTML: Use W3C validator or browser developer tools

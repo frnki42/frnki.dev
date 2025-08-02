@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture VR Showcase - frnki.dev</title>
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!-- SEO & Social -->
+  <meta name="description" content="Real-time architectural walkthroughs in VR using Unreal Engine 5 and Meta Quest 3. Transforming how architecture offices present designs to clients." />
+  <meta name="author" content="frnki" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Architecture VR Showcase - frnki.dev" />
+  <meta property="og:description" content="Real-time architectural walkthroughs in VR using Unreal Engine 5 and Meta Quest 3." />
+  <meta property="og:url" content="https://frnki.dev/architecture-vr.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://frnki.dev/images/projects/architecture-vr/METRiK_01.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Architecture VR Showcase - frnki.dev" />
+  <meta name="twitter:description" content="Real-time architectural walkthroughs in VR using Unreal Engine 5 and Meta Quest 3." />
+  <meta name="twitter:image" content="https://frnki.dev/images/projects/architecture-vr/METRiK_01.png" />
+  <!-- Analytics -->
+  <script defer data-domain="frnki.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
+  <script>
+    window.plausible = window.plausible || function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+  </script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#282828',
+            text: '#ffffff',
+            sub: '#cccccc',
+            green: '#b8bb26',
+            border: '#444444',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #282828;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .hover-lift {
+      transition: transform 0.2s;
+    }
+    .hover-lift:hover {
+      transform: translateY(-2px);
+    }
+    .fade-target {
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+    }
+    .fade-target.visible {
+      opacity: 1;
+    }
+    /* Gallery styles */
+    .gallery-main {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: #1f1f1f;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .gallery-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+    .gallery-thumbnail {
+      aspect-ratio: 16/9;
+      background-color: #1f1f1f;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .gallery-thumbnail:hover {
+      border-color: #b8bb26;
+      transform: scale(1.02);
+    }
+    .gallery-thumbnail.active {
+      border-color: #b8bb26;
+    }
+    .gallery-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background-color: #1d2021;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid #444444;
+    }
+    /* Tech stack */
+    .tech-badge {
+      display: inline-block;
+      background-color: rgba(184, 187, 38, 0.2);
+      color: #b8bb26;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      margin: 0.25rem;
+    }
+    /* Status badge */
+    .status-badge {
+      display: inline-block;
+      background-color: rgba(184, 187, 38, 0.2);
+      color: #b8bb26;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body class="bg-bg text-text">
+  <!-- Navigation -->
+  <nav class="container mx-auto p-6 flex justify-between items-center">
+    <a href="/" class="text-white text-xl font-semibold hover:text-green transition hover:rotate-[-2deg] inline-block">.frnki</a>
+    <div class="flex gap-6">
+      <a href="/" class="text-sub hover:text-white transition">Home</a>
+      <a href="projects.html" class="text-sub hover:text-white transition">Projects</a>
+      <a href="contact.html" class="text-sub hover:text-white transition">Contact</a>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-12 max-w-6xl">
+    <!-- Hero Section -->
+    <section class="fade-target mb-12">
+      <div class="flex items-center gap-4 mb-6">
+        <h1 class="text-4xl font-semibold text-white">Architecture VR Showcase</h1>
+        <span class="status-badge">In Development</span>
+      </div>
+      
+      <p class="text-xl text-sub mb-8">
+        Transforming how architecture offices present designs to clients through immersive real-time VR walkthroughs.
+      </p>
+      
+      <!-- Tech Stack -->
+      <div class="flex flex-wrap gap-2">
+        <span class="tech-badge">Unreal Engine 5</span>
+        <span class="tech-badge">Meta Quest 3</span>
+        <span class="tech-badge">Blueprints</span>
+        <span class="tech-badge">VR Development</span>
+        <span class="tech-badge">Real-time Rendering</span>
+      </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="fade-target mb-12">
+      <h2 class="text-2xl font-semibold text-white mb-6">Project Gallery</h2>
+      
+      <!-- Main Gallery Image -->
+      <div class="gallery-main" id="mainGallery">
+        <img src="images/projects/architecture-vr/METRiK_01.png" alt="Architecture VR - Room Walkthrough" id="mainImage">
+      </div>
+      
+      <!-- Thumbnail Gallery -->
+      <div class="gallery-thumbnails">
+        <div class="gallery-thumbnail active" onclick="changeMainImage(0)">
+          <img src="images/projects/architecture-vr/METRiK_01.png" alt="Architecture VR - Room Walkthrough">
+        </div>
+        <div class="gallery-thumbnail" onclick="changeMainImage(1)">
+          <img src="images/projects/architecture-vr/METRiK_00.png" alt="Architecture VR - Interior Visualization">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Overview Section -->
+    <section class="fade-target mb-12">
+      <h2 class="text-2xl font-semibold text-white mb-6">Project Overview</h2>
+      
+      <div class="bg-[#1d2021] p-8 rounded-xl border border-border">
+        <p class="text-sub mb-6">
+          The Architecture VR Showcase represents a paradigm shift in architectural visualization. By leveraging the power of 
+          Unreal Engine 5 and the Meta Quest 3's advanced capabilities, this project enables architecture firms to offer their 
+          clients an unprecedented level of immersion in unbuilt spaces.
+        </p>
+        
+        <p class="text-sub mb-6">
+          Unlike traditional 2D renderings or even 3D models on screens, VR walkthroughs allow clients to truly experience 
+          the scale, proportions, and atmosphere of their future spaces. They can walk through rooms, examine materials up 
+          close, and understand spatial relationships in a way that was previously impossible.
+        </p>
+        
+        <p class="text-sub">
+          This project is currently in active development, with a focus on optimizing performance for standalone VR headsets 
+          while maintaining the high visual fidelity that architecture clients expect.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Key Features -->
+    <section class="fade-target mb-12">
+      <h2 class="text-2xl font-semibold text-white mb-6">Key Features</h2>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3 class="text-lg font-semibold text-white mb-3">Real-time Rendering</h3>
+          <p class="text-sm text-sub">
+            Leveraging Unreal Engine 5's Lumen technology for dynamic global illumination and realistic lighting conditions 
+            at any time of day.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="text-lg font-semibold text-white mb-3">Photorealistic Materials</h3>
+          <p class="text-sm text-sub">
+            High-resolution PBR materials and textures that accurately represent real-world surfaces, from polished marble 
+            to rough concrete.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="text-lg font-semibold text-white mb-3">Interactive Elements</h3>
+          <p class="text-sm text-sub">
+            Clients can interact with doors, windows, and lighting systems to experience how the space functions in 
+            different scenarios.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="text-lg font-semibold text-white mb-3">1:1 Scale Accuracy</h3>
+          <p class="text-sm text-sub">
+            Every measurement is precisely calibrated to ensure that the VR experience accurately represents the actual 
+            dimensions of the designed space.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="text-lg font-semibold text-white mb-3">Material Variants</h3>
+          <p class="text-sm text-sub">
+            Switch between different material options in real-time, allowing clients to compare finishes and make informed 
+            decisions.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="text-lg font-semibold text-white mb-3">Optimized Performance</h3>
+          <p class="text-sm text-sub">
+            Carefully optimized to run smoothly on Meta Quest 3 hardware while maintaining visual quality through advanced 
+            LOD systems.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Technical Implementation -->
+    <section class="fade-target mb-12">
+      <h2 class="text-2xl font-semibold text-white mb-6">Technical Implementation</h2>
+      
+      <div class="bg-[#1d2021] p-8 rounded-xl border border-border">
+        <h3 class="text-lg font-semibold text-white mb-4">Development Stack</h3>
+        <ul class="text-sub space-y-2 mb-6">
+          <li>• <strong class="text-white">Engine:</strong> Unreal Engine 5.3 with Nanite virtualized geometry</li>
+          <li>• <strong class="text-white">VR Framework:</strong> Meta XR SDK for Quest optimization</li>
+          <li>• <strong class="text-white">Scripting:</strong> Blueprint visual scripting for rapid iteration</li>
+          <li>• <strong class="text-white">Asset Pipeline:</strong> Datasmith for CAD to UE5 workflow</li>
+          <li>• <strong class="text-white">Version Control:</strong> Perforce for large binary asset management</li>
+        </ul>
+        
+        <h3 class="text-lg font-semibold text-white mb-4">Performance Optimization</h3>
+        <p class="text-sub mb-4">
+          Achieving photorealistic quality on mobile VR hardware requires careful optimization:
+        </p>
+        <ul class="text-sub space-y-2">
+          <li>• Aggressive LOD (Level of Detail) systems for complex geometry</li>
+          <li>• Baked lighting for static elements combined with dynamic lights where needed</li>
+          <li>• Texture atlasing and compression to minimize memory usage</li>
+          <li>• Occlusion culling to avoid rendering unseen geometry</li>
+          <li>• Fixed foveated rendering to concentrate detail where users look</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="fade-target text-center">
+      <div class="bg-gradient-to-r from-green/20 to-green/10 p-8 rounded-xl border border-green/30">
+        <h2 class="text-2xl font-semibold text-white mb-4">Interested in VR for Your Architecture Firm?</h2>
+        <p class="text-sub mb-6">
+          Let's discuss how immersive VR walkthroughs can transform your client presentations and design workflow.
+        </p>
+        <a href="contact.html" class="inline-block bg-green text-bg px-6 py-3 rounded-lg font-semibold hover:bg-white transition">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="container mx-auto p-6 mt-20 text-center">
+    <p class="text-sub text-sm">
+      © 2025 frnki.dev — <a href="https://github.com/frnki42" target="_blank" class="hover:text-white transition">GitHub</a>
+    </p>
+  </footer>
+  
+  <script>
+    // Gallery functionality
+    const images = [
+      { src: 'images/projects/architecture-vr/METRiK_01.png', alt: 'Architecture VR - Room Walkthrough' },
+      { src: 'images/projects/architecture-vr/METRiK_00.png', alt: 'Architecture VR - Interior Visualization' }
+    ];
+    
+    function changeMainImage(index) {
+      const mainImage = document.getElementById('mainImage');
+      const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+      
+      mainImage.src = images[index].src;
+      mainImage.alt = images[index].alt;
+      
+      thumbnails.forEach((thumb, i) => {
+        if (i === index) {
+          thumb.classList.add('active');
+        } else {
+          thumb.classList.remove('active');
+        }
+      });
+    }
+    
+    // Fade-in animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-target').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
